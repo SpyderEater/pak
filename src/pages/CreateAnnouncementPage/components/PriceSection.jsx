@@ -27,6 +27,7 @@ export default function PriceSection({
         const data = await getAllCurrencies()
         if (!cancelled) {
           setCurrencies(Array.isArray(data) ? data : [])
+          console.log('currencies data:', data)
         }
       } catch (error) {
         console.error('Failed to load currencies:', error)

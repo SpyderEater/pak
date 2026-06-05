@@ -48,6 +48,10 @@ export const router = createBrowserRouter([
             element: <CreateAnnouncementPage />,
           },
           {
+            path: 'edit-announcement/:productId',
+            element: <CreateAnnouncementPage />,
+          },
+          {
             path: 'announcement-success',
             element: <AnnouncementSuccess />,
           },

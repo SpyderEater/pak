@@ -18,6 +18,9 @@ export default function ListingCard({
   deleteIcon,
   messageActionAriaLabel = 'Повідомлення',
   deleteActionAriaLabel = 'Видалити',
+  onMessageAction,
+  onDeleteAction,
+  onPrimaryAction,
 }) {
   const [imageLoadFailed, setImageLoadFailed] = useState(false)
 
@@ -66,6 +69,7 @@ export default function ListingCard({
               className="listing-card__icon-button listing-card__icon-button--message"
               aria-label={messageActionAriaLabel}
               disabled={actionsDisabled}
+              onClick={onMessageAction}
             >
               <span className="listing-card__icon" aria-hidden="true">
                 {messageIcon}
@@ -79,6 +83,7 @@ export default function ListingCard({
               className="listing-card__icon-button listing-card__icon-button--delete"
               aria-label={deleteActionAriaLabel}
               disabled={actionsDisabled}
+              onClick={onDeleteAction}
             >
               <span className="listing-card__icon" aria-hidden="true">
                 {deleteIcon}
@@ -91,6 +96,7 @@ export default function ListingCard({
               type="button"
               className="listing-card__primary-button"
               disabled={actionsDisabled}
+              onClick={onPrimaryAction}
             >
               {primaryActionLabel}
             </button>

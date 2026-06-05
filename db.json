@@ -109,9 +109,16 @@
         "Матеріал": "Водонепроникна нейлонова тканина",
         "Особливості": "Багато кишень, відділ для гідратора"
       },
-      "shippingMethods": ["Нова Пошта", "Укрпошта", "Самовивіз"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)", "Оплата при отриманні"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта",
+        "Самовивіз"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)",
+        "Оплата при отриманні"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-10T08:00:00Z",
       "type": "equipment",
       "category": "hobbies"
@@ -139,8 +146,12 @@
         "Матеріал": "Кераміка",
         "Особливості": "Ручна робота, можна мити в ПМ"
       },
-      "shippingMethods": ["Нова Пошта"],
-      "paymentMethods": ["Повна передплата"],
+      "shippingMethods": [
+        "Нова Пошта"
+      ],
+      "paymentMethods": [
+        "Повна передплата"
+      ],
       "linkedCampaignId": 201,
       "createdAt": "2024-11-12T10:30:00Z",
       "type": "other",
@@ -168,9 +179,15 @@
         "Матеріал": "Дерево",
         "Вік": "Від 1 року"
       },
-      "shippingMethods": ["Укрпошта", "Самовивіз"],
-      "paymentMethods": ["Готівка", "Безпечна оплата на сайті"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Укрпошта",
+        "Самовивіз"
+      ],
+      "paymentMethods": [
+        "Готівка",
+        "Безпечна оплата на сайті"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-10-20T14:15:00Z",
       "type": "other",
       "category": "kids"
@@ -220,9 +237,13 @@
       "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта"],
-      "paymentMethods": ["Повна передплата"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта"
+      ],
+      "paymentMethods": [
+        "Повна передплата"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-01T09:00:00Z",
       "type": "other",
       "category": "art-craft"
@@ -272,9 +293,13 @@
       "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Укрпошта"],
-      "paymentMethods": ["Готівка"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Готівка"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-10-20T14:15:00Z",
       "type": "equipment",
       "category": "health-beauty"
@@ -298,9 +323,13 @@
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Самовивіз"],
-      "paymentMethods": ["Готівка"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Самовивіз"
+      ],
+      "paymentMethods": [
+        "Готівка"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-10-21T11:00:00Z",
       "type": "clothes",
       "category": "clothes"
@@ -324,9 +353,13 @@
       "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта"],
-      "paymentMethods": ["Онлайн-оплата карткою"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-10-22T16:30:00Z",
       "type": "other",
       "category": "home"
@@ -350,9 +383,14 @@
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "equipment",
       "category": "hobbies"
@@ -376,9 +414,14 @@
       "condition": "new",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "clothes",
       "category": "hobbies"
@@ -402,9 +445,14 @@
       "condition": "restored",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "other",
       "category": "hobbies"
@@ -428,9 +476,14 @@
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "other",
       "category": "hobbies"
@@ -454,9 +507,14 @@
       "condition": "restored",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "other",
       "category": "hobbies"
@@ -480,9 +538,14 @@
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "equipment",
       "category": "hobbies"
@@ -506,9 +569,14 @@
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
       "category": "home"
@@ -532,9 +600,14 @@
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
       "category": "health-beauty"
@@ -558,9 +631,14 @@
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
       "category": "clothes"
@@ -584,9 +662,14 @@
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
       "category": "kids"
@@ -610,9 +693,14 @@
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
       "category": "pets"
@@ -636,9 +724,14 @@
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
       "category": "hobbies"
@@ -662,9 +755,14 @@
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
       "category": "art-craft"
@@ -688,9 +786,14 @@
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
       "category": "services",
@@ -715,9 +818,14 @@
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
       "category": "books"
@@ -741,9 +849,14 @@
       "condition": "used",
       "location": "м. Київ",
       "attributes": {},
-      "shippingMethods": ["Нова Пошта", "Укрпошта"],
-      "paymentMethods": ["Онлайн-оплата карткою (Visa/MasterCard)"],
-      "linkedCampaignId": null,
+      "shippingMethods": [
+        "Нова Пошта",
+        "Укрпошта"
+      ],
+      "paymentMethods": [
+        "Онлайн-оплата карткою (Visa/MasterCard)"
+      ],
+      "linkedCampaignId": "",
       "createdAt": "2024-11-20T10:00:00Z",
       "type": "test",
       "category": "electronics"
@@ -769,7 +882,7 @@
       "attributes": {},
       "shippingMethods": [],
       "paymentMethods": [],
-      "linkedCampaignId": null,
+      "linkedCampaignId": "",
       "createdAt": "2026-05-18T08:38:05.137Z",
       "donateToFund": true,
       "organizationId": 302,
@@ -1031,7 +1144,11 @@
     {
       "id": 1001,
       "buyerId": 2,
-      "items": [101, 102, 103],
+      "items": [
+        101,
+        102,
+        103
+      ],
       "campaignId": 201,
       "totalAmount": 450,
       "createdAt": "2024-11-16T10:00:00Z"

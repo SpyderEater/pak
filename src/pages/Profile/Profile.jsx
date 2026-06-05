@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router'
 import './Profile.css'
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs.jsx'
 import HeroBanner from '../../components/HeroBanner/HeroBanner.jsx'
@@ -17,6 +18,7 @@ import ArrowRightIcon from '../../assets/images/arrow_right.svg?react'
 
 import { getCurrentUserId } from '/src/services/session'
 import { getProfileData } from './services/profile'
+import { deleteProduct } from '../../services/products'
 
 const PROFILE_TABS = [
   { id: 'announcements', label: 'Оголошення' },
@@ -36,6 +38,7 @@ const MENU_LINKS = [
 ]
 
 export default function Profile() {
+  const navigate = useNavigate()
   const [activeTabId, setActiveTabId] = useState(PROFILE_TABS[0].id)
 
   const [userIdentity, setUserIdentity] = useState({
@@ -64,6 +67,26 @@ export default function Profile() {
   })
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
+
+  // function buildDraftsWithHandlers(drafts) {
+  //   return (drafts ?? []).map((card) => ({
+  //     ...card,
+  //     onPrimaryAction: () => navigate(`/edit-announcement/${card.id}`),
+  //     onDeleteAction: async () => {
+  //       try {
+  //         //await deleteProduct(card.id)
+  //         const numericId = String(card.id).replace('prod-', '')
+  //         await deleteProduct(numericId)
+  //         setListingsByTab((prev) => ({
+  //           ...prev,
+  //           drafts: prev.drafts.filter((d) => d.id !== card.id),
+  //         }))
+  //       } catch (err) {
+  //         console.error('Failed to delete draft', err)
+  //       }
+  //     },
+  //   }))
+  // }
 
   useEffect(() => {
     let mounted = true
@@ -99,7 +122,30 @@ export default function Profile() {
         setRewards(
           profileData.rewards ? { ...profileData.rewards, arrowIcon: <ArrowRightIcon /> } : null,
         )
-        setListingsByTab(profileData.listingsByTab)
+
+        const localOrders = JSON.parse(localStorage.getItem('orders') || '[]')
+
+        setListingsByTab({
+          ...profileData.listingsByTab,
+          // drafts: buildDraftsWithHandlers(profileData.listingsByTab.drafts),
+          drafts: profileData.listingsByTab.drafts ?? [],
+          orders: [
+            ...localOrders.map((order) => ({
+              id: order.id,
+              title: `Замовлення від ${order.date}`,
+              subtitle: order.items.map((i) => i.name).join(', '),
+              priceText: `${order.total} грн`,
+              primaryActionLabel: 'Відслідкувати',
+              imagePlaceholder: true,
+            })),
+            ...(profileData.listingsByTab.orders ?? []),
+          ],
+        })
+        console.log('drafts:', profileData.listingsByTab.drafts)
+        console.log('listingsByTab keys:', Object.keys(profileData.listingsByTab))
+        console.log('profileData.listingsByTab:', profileData.listingsByTab)
+        console.log('default orders:', profileData.listingsByTab.orders)
+
       } catch (err) {
         if (mounted) {
           setError(err)
@@ -124,6 +170,40 @@ export default function Profile() {
   const bannerRightContent = (
     <h1 className="profile-banner-title">Донать, досягай нового рівня, отримуй нагороди!</h1>
   )
+
+  const draftsWithHandlers = (listingsByTab.drafts ?? []).map((card) => ({
+    ...card,
+    onPrimaryAction: () => navigate(`/edit-announcement/${String(card.id).replace('prod-', '')}`),
+    onDeleteAction: async () => {
+      try {
+        const numericId = String(card.id).replace('prod-', '')
+        await deleteProduct(numericId)
+        setListingsByTab((prev) => ({
+          ...prev,
+          drafts: prev.drafts.filter((d) => d.id !== card.id),
+        }))
+      } catch (err) {
+        console.error('Failed to delete draft', err)
+      }
+    },
+  }))
+
+  // const announcementsWithHandlers = (listingsByTab.announcements ?? []).map((card) => ({
+  //   ...card,
+  //   onPrimaryAction: () => navigate(`/edit-announcement/${String(card.id).replace('prod-', '')}`),
+  //   onDeleteAction: async () => {
+  //     try {
+  //       const numericId = String(card.id).replace('prod-', '')
+  //       await deleteProduct(numericId)
+  //       setListingsByTab((prev) => ({
+  //         ...prev,
+  //         announcements: prev.announcements.filter((a) => a.id !== card.id),
+  //       }))
+  //     } catch (err) {
+  //       console.error('Failed to delete announcement', err)
+  //     }
+  //   },
+  // }))
 
   return (
     <div
@@ -157,7 +237,15 @@ export default function Profile() {
             onTabChange={setActiveTabId}
             addListingLabel="Додати оголошення"
             addListingIcon={<AddPlusIcon />}
-            cards={listingsByTab[activeTabId] ?? []}
+            // cards={listingsByTab[activeTabId] ?? []}
+            cards={activeTabId === 'drafts' ? draftsWithHandlers : (listingsByTab[activeTabId] ?? [])}
+            // cards={
+            //   activeTabId === 'drafts'
+            //     ? draftsWithHandlers
+            //     : activeTabId === 'announcements'
+            //       ? announcementsWithHandlers
+            //       : (listingsByTab[activeTabId] ?? [])
+            // }
             messageIcon={<MessagesIcon />}
             deleteIcon={<BinIcon />}
           />

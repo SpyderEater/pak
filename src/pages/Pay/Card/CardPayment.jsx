@@ -5,6 +5,7 @@ import './CardPayment.css'
 import { useNavigate } from 'react-router'
 import { useState, useEffect } from 'react'
 import { getProducts } from '/src/services/products'
+import { useCart } from '/src/contexts/CartContext'
 
 import gpay from '../Payment/img/gpay.svg'
 import applepay from '../Payment/img/applepay.svg'
@@ -74,6 +75,26 @@ const CardPayment = ({ onNext, onBack }) => {
       e.preventDefault()
       setExpiry((prev) => prev.slice(0, -1))
     }
+  }
+
+
+
+  const { items, clearCart } = useCart()
+
+  const handlePay = () => {
+    const newOrder = {
+      id: Date.now(),
+      date: new Date().toLocaleDateString('uk-UA'),
+      items: items,
+      total: items.reduce((sum, i) => sum + i.price + i.donation, 0),
+      status: 'Оплачено',
+    }
+
+    const existing = JSON.parse(localStorage.getItem('orders') || '[]')
+    localStorage.setItem('orders', JSON.stringify([newOrder, ...existing]))
+
+    clearCart()
+    navigate('/success')
   }
 
   const isFormValid =
@@ -175,7 +196,8 @@ const CardPayment = ({ onNext, onBack }) => {
                 <button
                   className="btn-pay"
                   disabled={!isFormValid}
-                  onClick={() => navigate('/success')}
+                  // onClick={() => navigate('/success')}
+                  onClick={handlePay}
                 >
                   Оплатити
                 </button>
