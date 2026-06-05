@@ -1,0 +1,120 @@
+.breadcrumbs {
+  width: 100%;
+  --breadcrumbs-font-size: 14px;
+}
+
+.breadcrumbs--bar {
+  background: #fafaf8;
+  padding: 28px 0 26px;
+}
+
+.breadcrumbs--inline {
+  background: transparent;
+  padding: 0;
+}
+
+.breadcrumbs__inner {
+  width: min(calc(100% - 80px), 1240px);
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.breadcrumbs--inline .breadcrumbs__inner {
+  width: auto;
+  margin: 0;
+}
+
+.breadcrumbs__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.breadcrumbs__item {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.breadcrumbs__link,
+.breadcrumbs__current {
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #657134;
+  font-size: var(--breadcrumbs-font-size);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.18s ease;
+}
+
+.breadcrumbs__link {
+  font-weight: 400;
+}
+
+.breadcrumbs__current {
+  font-weight: 700;
+  color: #59642c;
+  max-width: clamp(200px, 36vw, 520px);
+}
+
+.breadcrumbs__separator {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  margin: 0 12px;
+}
+
+.breadcrumbs--inline .breadcrumbs__link,
+.breadcrumbs--inline .breadcrumbs__current {
+  font-size: var(--breadcrumbs-font-size);
+  line-height: 1.3;
+  color: #5e6d2e;
+}
+
+.breadcrumbs--inline .breadcrumbs__current {
+  font-weight: 600;
+  color: #2e3900;
+  max-width: clamp(180px, 34vw, 360px);
+}
+
+.breadcrumbs--inline .breadcrumbs__separator {
+  width: 24px;
+  height: 24px;
+  margin: 0 6px;
+  opacity: 0.85;
+}
+
+.breadcrumbs__link:hover,
+.breadcrumbs__current:hover,
+.breadcrumbs--inline .breadcrumbs__link:hover,
+.breadcrumbs--inline .breadcrumbs__current:hover {
+  color: var(--color-hover-primary);
+}
+
+@media (max-width: 680px) {
+  .breadcrumbs--bar {
+    padding: 18px 0 16px;
+  }
+
+  .breadcrumbs__inner {
+    width: calc(100% - 24px);
+  }
+
+  .breadcrumbs {
+    --breadcrumbs-font-size: 14px;
+  }
+
+  .breadcrumbs__separator {
+    width: 22px;
+    height: 22px;
+    margin: 0 10px;
+  }
+}

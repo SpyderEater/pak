@@ -1,0 +1,14 @@
+.DonatoinPercent-container {
+  background-color: #d7e361;
+  border-style: solid;
+  border-color: #bbc834;
+  border-width: 1px;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #2b3a00;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  line-height: 1;
+  white-space: nowrap;
+}

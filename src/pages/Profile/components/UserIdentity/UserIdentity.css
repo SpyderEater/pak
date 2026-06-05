@@ -1,0 +1,97 @@
+.user-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-identity__avatar-frame {
+  position: relative;
+  width: 122px;
+  height: 122px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  z-index: 1;
+}
+
+.progress-ring__background {
+  stroke: #e2e8f0;
+  stroke-width: 6;
+  fill: transparent;
+}
+
+.progress-ring__progress {
+  stroke: var(--color-hover-primary);
+  stroke-width: 6;
+  stroke-linecap: round;
+  fill: transparent;
+  transition: stroke-dashoffset 0.8s ease-in-out;
+}
+
+.user-identity__avatar {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  z-index: 2;
+}
+
+.user-identity__name {
+  margin: 15px 0 0;
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #2a3600;
+  text-align: center;
+}
+
+.user-identity__meta {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.user-identity__username {
+  color: #808974;
+}
+
+.user-identity__level {
+  color: #768800;
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .user-identity__avatar-frame {
+    width: 25vw;
+    height: 25vw;
+  }
+
+  .user-identity__avatar {
+    width: 85%;
+    height: 85%;
+  }
+
+  .user-identity__name {
+    font-size: 5vw;
+    margin-top: 4vw;
+  }
+
+  .user-identity__meta {
+    font-size: 3.5vw;
+    gap: 2vw;
+    margin-top: 2vw;
+  }
+}

@@ -1,0 +1,107 @@
+.create-announcement-page {
+  background: #ffffff;
+  min-height: 100vh;
+  color: #202020;
+}
+
+.create-announcement-page__container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 36px 16px 32px;
+}
+
+.create-announcement-page__title {
+  margin: 0 0 44px;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #243400;
+}
+
+.create-announcement-page__sections {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.create-announcement-page__actions {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.create-announcement-page__actions-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.create-announcement-page__action {
+  height: 48px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  border-color: #273500;
+  background: #ffffff;
+  color: #273500;
+}
+
+.create-announcement-page__action--draft {
+  min-width: 236px;
+}
+
+.create-announcement-page__action--cancel {
+  min-width: 172px;
+}
+
+.create-announcement-page__action--publish {
+  margin-left: auto;
+  min-width: 122px;
+}
+
+.create-announcement-page__action--primary {
+  background: #121800;
+  border-color: #121800;
+  color: #ffffff;
+}
+
+@media (max-width: 480px) {
+  .create-announcement-page__container {
+    padding: 20px 12px 24px;
+  }
+
+  .create-announcement-page__title {
+    margin: 0 0 24px;
+    font-size: 28px;
+    line-height: 1.12;
+  }
+
+  .create-announcement-page__sections {
+    gap: 12px;
+  }
+
+  .create-announcement-page__actions {
+    margin-top: 24px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .create-announcement-page__actions-left {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .create-announcement-page__action,
+  .create-announcement-page__action--draft,
+  .create-announcement-page__action--cancel,
+  .create-announcement-page__action--publish {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0;
+  }
+}

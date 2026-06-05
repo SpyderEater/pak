@@ -1,0 +1,63 @@
+.MoreButton-button {
+  --mb-accent: var(--accent-color, #273500);
+  --mb-contrast: var(--accent-contrast-color, #ffffff);
+  --mb-text: var(--more-button-text-color, var(--control-text-color, var(--mb-accent)));
+  --mb-hover-color: var(--more-button-hover-color, #99a235);
+
+  border: 1px solid currentColor;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--mb-text);
+  background-color: #ffffff;
+  min-height: 48px;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  white-space: nowrap;
+  transition:
+    opacity 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.MoreButton-button:not(:disabled):hover {
+  color: var(--mb-hover-color);
+}
+
+.MoreButton-button--primary {
+  background-color: var(--mb-accent);
+  color: var(--mb-contrast);
+}
+
+.MoreButton-button--primary:not(:disabled):hover {
+  background-color: var(--mb-hover-color);
+  border-color: var(--mb-hover-color);
+  color: var(--mb-contrast);
+}
+
+.MoreButton-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.MoreButton-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  color: inherit;
+}
+
+.MoreButton-icon svg {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,66 @@
+:root {
+  --header-offset: 0px;
+  --background-grey-color: #;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.app-content {
+  padding-top: var(--header-offset);
+  display: flow-root;
+}
+
+.footer-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+.btn-primary {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1;
+}
+.btn-secondary {
+  background: #fff;
+  border: 1px solid #000;
+  padding: 12px 20px;
+  cursor: pointer;
+  flex: 1;
+}
+.btn-success {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1;
+}
+.back-link {
+  cursor: pointer;
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+  gap: 10px;
+}

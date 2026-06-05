@@ -1,0 +1,409 @@
+.checkout-container {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  margin-left: 0;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+
+.back-link:hover {
+  color: black;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 32px 0;
+}
+
+.checkout-content {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.checkout-left {
+  flex: 2;
+}
+
+.checkout-right {
+  flex: 1;
+  max-width: 320px;
+}
+
+/* SECTION CARDS */
+.section-card {
+  background: white;
+  border: 1px solid #e5e5e5;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 20px 0;
+}
+
+/* DELIVERY OPTIONS */
+.delivery-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #e5e5e5;
+  padding: 16px;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.delivery-option:hover {
+  border-color: #999;
+}
+
+.delivery-option--selected {
+  border-color: black;
+}
+
+/* RADIO */
+.radio-circle {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease;
+}
+
+.delivery-option--selected .radio-circle {
+  border-color: black;
+}
+
+.radio-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: black;
+}
+
+/* DELIVERY ICON */
+.delivery-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.delivery-info {
+  flex: 1;
+}
+
+.delivery-name {
+  margin: 0 0 2px 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.delivery-days {
+  margin: 0;
+  font-size: 13px;
+  color: #777;
+}
+
+.delivery-price {
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* FORM */
+.form-group {
+  margin-top: 16px;
+}
+
+.field-label {
+  display: block;
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.phone-input,
+.email-input,
+.select-wrapper select {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #e5e5e5;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.15s ease;
+  box-sizing: border-box;
+  background: white;
+  color: #111;
+  font-family: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-group input:focus {
+  border-color: #aaa;
+}
+
+/* VALIDATION */
+.form-group input.input-error {
+  border-color: #e53e3e;
+  background: #fff8f8;
+}
+
+.form-group input.input-success {
+  border-color: #38a169;
+}
+
+.field-error {
+  display: block;
+  font-size: 12px;
+  color: #e53e3e;
+  margin-top: 4px;
+}
+
+/* PHONE */
+.phone-wrapper {
+  display: flex;
+  border: 1px solid #e5e5e5;
+  transition: border-color 0.15s ease;
+}
+
+.phone-wrapper.input-error {
+  border-color: #e53e3e;
+  background: #fff8f8;
+}
+
+.phone-wrapper.input-success {
+  border-color: #38a169;
+}
+
+.phone-prefix {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border-right: 1px solid #e5e5e5;
+  background: #fafafa;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.flag {
+  font-size: 16px;
+}
+
+.country-code {
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+}
+
+.prefix-chevron {
+  font-size: 10px;
+  color: #888;
+}
+
+.phone-input {
+  border: none !important;
+  flex: 1;
+}
+
+.phone-input:focus {
+  outline: none;
+}
+
+/* EMAIL */
+.email-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  transition: border-color 0.15s ease;
+}
+
+.email-wrapper.input-error {
+  border-color: #e53e3e;
+  background: #fff8f8;
+}
+
+.email-wrapper.input-success {
+  border-color: #38a169;
+}
+
+.email-icon {
+  padding: 0 12px;
+  font-size: 15px;
+  color: #888;
+}
+
+.email-input {
+  border: none !important;
+  flex: 1;
+}
+
+.email-input:focus {
+  outline: none;
+}
+
+/* SELECT */
+.select-wrapper {
+  position: relative;
+  border: 1px solid #e5e5e5;
+  transition: border-color 0.15s ease;
+}
+
+.select-wrapper.input-error {
+  border-color: #e53e3e;
+}
+
+.select-wrapper.input-success {
+  border-color: #38a169;
+}
+
+.select-wrapper.select-disabled {
+  opacity: 0.5;
+}
+
+.select-wrapper select {
+  border: none !important;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.select-wrapper select:disabled {
+  cursor: not-allowed;
+  background: #fafafa;
+}
+
+.select-chevron {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  color: #888;
+  pointer-events: none;
+}
+
+/* FOOTER */
+.checkout-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+  margin-bottom: 180px;
+}
+
+/* BUTTONS */
+.btn-cancel {
+  background: white;
+  border: 1px solid black;
+  padding: 14px 40px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: inherit;
+  transition: background 0.15s ease;
+}
+
+.btn-cancel:hover {
+  background: #f5f5f5;
+}
+
+.btn-next {
+  background: black;
+  color: white;
+  border: none;
+  padding: 14px 60px;
+  min-width: 220px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.btn-next:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.btn-next--disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* RIGHT PANEL */
+.product-summary-card {
+  margin-left: -10px;
+  padding: 20px 40px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.product-summary-card:last-child {
+  border-bottom: none;
+}
+
+.badge {
+  display: inline-block;
+  background: #faffd1;
+  border: 1px solid #d4e05b;
+  padding: 4px 8px;
+  font-size: 12px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  padding-left: 15px;
+}
+
+.product-summary-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.product-summary-price {
+  font-size: 15px;
+  color: #333;
+  margin-left: 15px;
+}
+
+.back-to-home-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 12px;
+  color: #b8c1b0;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s;
+  margin-left: 180px;
+  z-index: 30;
+}
+
+.back-to-home-btn:hover {
+  opacity: 0.8;
+}

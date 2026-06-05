@@ -1,0 +1,66 @@
+.sidebar-message {
+  width: 100%;
+}
+
+.sidebar-message__button {
+  width: calc(100% + 16px);
+  margin: 0 -8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+  background: transparent;
+  border: none;
+  padding: 6px 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: #4f5836;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 500;
+  text-align: left;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.sidebar-message__button:hover {
+  color: var(--color-hover-primary);
+  background-color: var(--profile-hover-bg);
+}
+
+.sidebar-message__icon {
+  width: 17px;
+  height: 17px;
+  opacity: 0.9;
+  transition: color 0.2s ease;
+}
+
+.sidebar-message__label {
+  line-height: 1;
+  display: inline-block;
+  transform-origin: left center;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.sidebar-message__button:hover .sidebar-message__label {
+  transform: scale(1.02);
+}
+
+@media (max-width: 480px) {
+  .sidebar-message__button {
+    font-size: 4.5vw;
+    padding: 2vw 0;
+    gap: 3vw;
+    margin: 0;
+    width: 100%;
+  }
+
+  .sidebar-message__icon {
+    width: 6vw;
+    height: 6vw;
+  }
+}

@@ -1,0 +1,31 @@
+.dashboard-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 14px;
+  padding: 0;
+  min-height: var(--profile-toolbar-height, 40px);
+  background-color: transparent;
+}
+
+@media (max-width: 640px) {
+  .dashboard-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 10px;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+  }
+
+  .dashboard-toolbar > :last-child {
+    display: none !important;
+  }
+}

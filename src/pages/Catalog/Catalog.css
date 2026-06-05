@@ -1,0 +1,81 @@
+.Catalog-ProductCardList-wrapper {
+  /* margin-top: 30px;
+  margin-bottom: 30px; */
+
+  display: grid;
+  gap: 24px;
+  /* grid-template-columns: repeat(3, 313.6px); */
+  grid-template-columns: 1fr 1fr 1fr;
+
+  /* width: fit-content; */
+}
+
+.Catalog-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 72px 56px;
+}
+
+.Catalog-listAndButton-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Use the same pager color theme as profile (scoped to Catalog listings area) */
+.Catalog-listAndButton-wrapper {
+  --accent-color: #6b6b6b;
+  --accent-contrast-color: #1f1f1f;
+  --accent-muted-color: #9b9b9b;
+  --ps-accent-active: #fafceb;
+  --ps-accent-muted: #535862;
+  --more-button-text-color: #273500;
+  --control-border-color: #d0d0d0;
+  --control-text-color: #6b6b6b;
+  --muted-text-color: #bdbdbd;
+}
+
+.Catalog-moreButton-products {
+  align-items: center;
+}
+
+.Catalog-listAndButton-wrapper > div:nth-of-type(2) {
+  margin-top: 17px;
+}
+
+.Catalog-breadcrumbs {
+  background-color: var(--color-catalog-page-background, #edf0d6);
+  padding-left: 56px;
+  padding-top: 20px;
+}
+
+@media (max-width: 480px) {
+  .Catalog-wrapper {
+    flex-direction: column;
+    padding: 24px;
+    align-items: center;
+  }
+
+  .Catalog-ProductCardList-wrapper {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* .Catalog-ProductCardList-wrapper {
+    grid-template-columns: 1fr; 
+    gap: 16px; 
+  } */
+
+  .Catalog-breadcrumbs {
+    padding-left: 24px;
+    padding-top: 12px;
+    background-color: #ffffff;
+    width: 90%;
+  }
+
+  .Catalog-hero-wrapper {
+    display: none;
+  }
+}

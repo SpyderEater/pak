@@ -1,0 +1,150 @@
+.success-page-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 950px;
+  background-color: #ffffff;
+  padding: 0 20px 100px 20px;
+  overflow: hidden;
+}
+
+.grid-mosaic-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(9, 140px);
+  grid-template-rows: repeat(7, 140px);
+  width: 1260px;
+  height: 980px;
+  gap: 2px;
+  margin-top: -140px;
+}
+
+.tile {
+  width: 140px;
+  height: 140px;
+  z-index: 1;
+}
+
+.tile-lime {
+  background-color: #c9e13b;
+}
+.tile-lime-dark {
+  background-color: #bed92a;
+}
+.tile-lime-light {
+  background-color: #e4ee92;
+}
+.tile-khaki {
+  background-color: #737e55;
+}
+.tile-gray {
+  background-color: #b8c1b0;
+}
+
+.success-card {
+  grid-column: 3 / 8;
+  grid-row: 3 / 6;
+  background: #ffffff;
+  padding: 60px 40px;
+  text-align: center;
+  z-index: 2;
+  box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-title {
+  color: #121e05;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.success-message {
+  color: #121e05;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+.email-form-container {
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
+
+.email-label {
+  font-size: 14px;
+  color: #121e05;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.email-section {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.input-wrapper {
+  position: relative;
+  flex: 1;
+  border: 1px solid #121e05;
+  display: inline-block;
+}
+
+.email-input {
+  width: 100%;
+  padding: 16px 40px 16px 16px;
+  border: 1px solid #121e05;
+  background: #ffffff;
+  font-size: 16px;
+  outline: none;
+}
+
+.chevron-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #121e05;
+  pointer-events: none;
+}
+
+.email-button {
+  padding: 16px 28px;
+  background: #121e05;
+  color: #ffffff;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.back-to-home-btn {
+  position: absolute;
+  top: 5px;
+  left: 40px;
+  background: none;
+  border: none;
+  padding: 0;
+  color: #b8c1b0;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+  transition: opacity 0.2s;
+}
+
+.back-to-home-btn:hover {
+  opacity: 0.8;
+}

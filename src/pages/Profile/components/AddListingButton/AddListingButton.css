@@ -1,0 +1,45 @@
+.add-listing-button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 500;
+  color: var(--profile-active-action-color, #273500);
+  background-color: #ffffff;
+  border: none;
+  padding: 0 14px;
+  height: 40px;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.add-listing-button:hover {
+  color: var(--color-hover-primary);
+}
+
+.add-listing-button__icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.add-listing-button__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.add-listing-button__label {
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .add-listing-button {
+    height: 40px;
+  }
+}

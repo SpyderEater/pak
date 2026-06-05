@@ -1,0 +1,56 @@
+.PriceFilter-wrapper {
+  padding: 10px 5px 0 5px;
+  /* width: 100%; */
+  width: 240px;
+  box-sizing: border-box; /* Ensures padding doesn't widen the container */
+}
+
+.PriceFilter-inputs-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.PriceFilter-input-group {
+  display: flex;
+  flex-direction: column;
+  width: 45%; /* Leaves a 10% gap in the middle naturally */
+}
+
+.PriceFilter-label {
+  font-size: 12px;
+  color: #9da48a;
+  margin-bottom: 4px;
+}
+
+.PriceFilter-label.right {
+  text-align: right;
+}
+
+.PriceFilter-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  box-sizing: border-box; /* Ensures the border and padding fit inside the 45% width */
+  font-family: inherit; /* Inherits your app's standard font */
+}
+
+.PriceFilter-input:focus {
+  outline: none;
+  border-color: #b5cc18; /* Optional: Makes the input border green when clicked */
+}
+
+.PriceFilter-input.right {
+  text-align: right;
+}
+
+/* Removes the default up/down arrows from number inputs for a cleaner look */
+.PriceFilter-input::-webkit-outer-spin-button,
+.PriceFilter-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.PriceFilter-input[type='number'] {
+  -moz-appearance: textfield;
+}

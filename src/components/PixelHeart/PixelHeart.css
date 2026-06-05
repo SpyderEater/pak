@@ -1,0 +1,47 @@
+.pixel-heart {
+  --heart-square-size: 147px;
+  --heart-column-count: 9;
+  display: flex;
+  flex-direction: column;
+}
+
+.pixel-heart--hero-figma {
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.pixel-heart__figure-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pixel-heart__row {
+  display: grid;
+  grid-template-columns: repeat(var(--heart-column-count), var(--heart-square-size));
+}
+
+.pixel-heart__square {
+  grid-column: var(--square-start);
+  width: var(--heart-square-size);
+  aspect-ratio: 1;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+}
+
+.pixel-heart__square--light {
+  background: #dee87a;
+}
+
+.pixel-heart__square--mid {
+  background: #cddc39;
+}
+
+.pixel-heart__square--pale {
+  background: #dfe3cc;
+}
+
+.pixel-heart__square--dark {
+  background: #717b54;
+}

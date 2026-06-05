@@ -1,0 +1,77 @@
+.hero {
+  background: #edf0d6;
+  padding: 8px 0 8px;
+}
+
+.hero__container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 14px;
+}
+
+.hero__left {
+  flex: 0 0 48%;
+  display: flex;
+  align-items: center;
+  min-height: 86px;
+}
+
+.hero__title {
+  margin: 0;
+  max-width: 420px;
+  font-size: 24px;
+  line-height: 1.22;
+  font-weight: 700;
+  font-family: 'e-Ukraine', sans-serif;
+  color: #1e2a00;
+}
+
+.hero__right {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 92px 1fr auto 56px;
+  align-items: center;
+  gap: 14px;
+  min-height: 86px;
+}
+
+.hero__description {
+  margin: 0;
+  grid-column: 2;
+  font-size: 12px;
+  line-height: 1.35;
+  color: #4b5a00;
+  max-width: 250px;
+}
+
+.hero__button {
+  grid-column: 3;
+  justify-self: start;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: #4d5f00;
+  cursor: pointer;
+}
+
+.hero__right::before,
+.hero__right::after {
+  content: '';
+  height: 100%;
+  background: #dbe58f;
+}
+
+.hero__right::before {
+  grid-column: 1;
+}
+
+.hero__right::after {
+  grid-column: 4;
+}

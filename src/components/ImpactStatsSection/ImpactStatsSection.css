@@ -1,0 +1,1103 @@
+.impact-stats {
+  background: #eaebe6;
+  padding: 48px 0 56px;
+}
+
+.impact-stats__inner {
+  --impact-gap: 16px;
+  --impact-mobile-gap: 8px;
+  --impact-mobile-heart-height: clamp(180px, 58vw, 240px);
+  --impact-pixel-size: clamp(24px, 3vw, 36.78px);
+
+  width: calc(100% - 64px);
+  max-width: none;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-areas:
+    'intro white rate heart'
+    'bar white rate heart';
+
+  grid-template-columns:
+    minmax(280px, 425fr)
+    minmax(150px, 199fr)
+    minmax(150px, 199fr)
+    minmax(320px, 424fr);
+
+  grid-template-rows:
+    minmax(260px, auto)
+    minmax(114px, auto);
+
+  gap: var(--impact-gap);
+
+  align-items: stretch;
+}
+
+.impact-stats__intro,
+.impact-stats__white-card,
+.impact-stats__rate-wrap,
+.impact-stats__heart-card,
+.impact-stats__bar-card {
+  box-sizing: border-box;
+}
+
+.impact-stats__white-card,
+.impact-stats__rate-card,
+.impact-stats__joined-card,
+.impact-stats__heart-card,
+.impact-stats__bar-card {
+  container-type: inline-size;
+}
+
+.impact-stats__intro {
+  grid-area: intro;
+
+  padding: clamp(12px, 1.8vw, 28px) 0 clamp(18px, 2.6vw, 42px) clamp(20px, 2vw, 32px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  gap: 16px;
+}
+
+.impact-stats__title {
+  margin: 0;
+
+  width: min(100%, 320px);
+  max-width: 320px;
+
+  color: #121800;
+
+  font-size: clamp(34px, 2.6vw, 52px);
+  line-height: 1.24;
+
+  font-weight: 500;
+}
+
+.impact-stats__title span {
+  display: block;
+  white-space: nowrap;
+}
+
+.impact-stats__details-btn {
+  border: none;
+
+  padding: 0;
+
+  min-height: auto;
+
+  background: transparent;
+
+  font-size: clamp(15px, 1.02vw, 20px);
+  font-weight: 400;
+  line-height: 20px;
+
+  color: #7f8f4a;
+
+  width: fit-content;
+
+  margin-top: clamp(8px, 1vw, 18px);
+}
+
+.impact-stats__label {
+  margin: 0;
+
+  font-size: clamp(15px, 1.05vw, 17px);
+  line-height: 1.43;
+
+  color: #565c18;
+}
+
+.impact-stats__label span {
+  display: block;
+}
+
+.impact-stats__value {
+  margin: 8px 0 0;
+
+  font-size: clamp(2.5rem, 4.6vw, 4.125rem);
+  line-height: 1;
+
+  font-weight: 700;
+
+  color: #121800;
+}
+
+.impact-stats__white-card {
+  grid-area: white;
+
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 199 / 424;
+  height: auto;
+
+  background: #ffffff;
+
+  padding: 11px 11px 0;
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.impact-stats__white-card .impact-stats__label {
+  position: absolute;
+  left: 6.03%;
+  top: 1.89%;
+
+  z-index: 2;
+
+  width: 89%;
+  min-height: 14.15%;
+
+  margin: 0;
+
+  font-size: clamp(13px, 8.8cqi, 22px);
+  line-height: 1.1;
+
+  font-weight: 400;
+
+  color: #565c18;
+  white-space: nowrap;
+}
+
+.impact-stats__white-card .impact-stats__value {
+  position: absolute;
+  left: 10.55%;
+  top: 20.05%;
+
+  z-index: 2;
+
+  margin: 0;
+  width: 76.88%;
+  min-height: 19.58%;
+  display: flex;
+  align-items: center;
+
+  font-size: clamp(42px, 28cqi, 84px);
+  line-height: 1;
+
+  font-weight: 700;
+
+  color: #121800;
+}
+
+.impact-stats__stairs {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+/* RATE */
+
+.impact-stats__rate-wrap {
+  grid-area: rate;
+  width: 100%;
+  min-width: 0;
+
+  display: grid;
+
+  grid-template-rows: 1fr 1fr;
+
+  gap: var(--impact-gap);
+}
+
+.impact-stats__rate-card {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+
+  background: #ffffff;
+
+  padding: 0;
+
+  overflow: hidden;
+}
+
+.impact-stats__rate-card .impact-stats__label,
+.impact-stats__rate-card .impact-stats__value {
+  position: absolute;
+
+  z-index: 2;
+}
+
+.impact-stats__rate-card .impact-stats__label {
+  left: 6.03%;
+  top: 4.02%;
+  width: 89%;
+  min-height: 30.15%;
+  margin: 0;
+  font-size: clamp(13px, 8.8cqi, 22px);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: #71791f;
+  white-space: nowrap;
+}
+
+.impact-stats__rate-card .impact-stats__value {
+  left: 10.55%;
+  top: 40.7%;
+  width: 76.88%;
+  min-height: 41.71%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-size: clamp(42px, 28cqi, 84px);
+  line-height: 1;
+  font-weight: 700;
+  color: #121800;
+}
+
+.impact-stats__rate-grid {
+  position: absolute;
+
+  left: 5.03%;
+  top: 40.7%;
+
+  width: 92.41%;
+
+  height: 55.45%;
+
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+  z-index: 0;
+}
+
+.impact-stats__rate-square {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: #cddc39;
+}
+
+.impact-stats__joined-card {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  background:
+    url('../../assets/images/impact-joined-bg.svg') left bottom / 100% 100% no-repeat,
+    #2f4600;
+
+  padding: 0;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.impact-stats__value--highlight {
+  margin-top: 0;
+}
+
+.impact-stats__value--light {
+  color: #ffffff;
+}
+
+.impact-stats__joined-card .impact-stats__label {
+  position: absolute;
+  left: 7.04%;
+  top: 7.04%;
+  width: 78%;
+  min-height: 30.15%;
+  margin: 0;
+  font-size: clamp(11px, 7.2cqi, 19px);
+  line-height: 1.05;
+  font-weight: 400;
+  color: #fafceb;
+}
+
+.impact-stats__joined-card .impact-stats__label span {
+  display: block;
+  white-space: nowrap;
+}
+
+.impact-stats__joined-card .impact-stats__value {
+  position: absolute;
+  left: 10.05%;
+  right: 10.05%;
+  bottom: 10.05%;
+  width: 84.42%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 0;
+  font-size: clamp(38px, 27cqi, 82px);
+  line-height: 1;
+  font-weight: 700;
+  color: #fafceb;
+}
+
+.impact-stats__heart-card {
+  grid-area: heart;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+
+  background: #121800;
+
+  padding: 14px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.impact-stats__label--light {
+  max-width: 49.06%;
+
+  font-size: clamp(10px, 3.2cqi, 16px);
+  line-height: 1.28;
+
+  font-weight: 400;
+
+  color: #fafceb;
+}
+
+.impact-stats__heart-visual {
+  position: absolute;
+  left: 6.2%;
+  top: 14.5%;
+  width: 86.5%;
+  height: 68.5%;
+  background: url('../../assets/images/impact-heart-bg.svg') left top / 100% 100% no-repeat;
+}
+
+.impact-stats__money {
+  position: absolute;
+  left: 4.75%;
+  bottom: 2.6%;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: clamp(6px, 0.55vw, 10px);
+  width: 90%;
+
+  color: #ffffff;
+
+  font-size: clamp(64px, 22cqi, 138px);
+  line-height: 1;
+
+  font-weight: 700;
+}
+
+.impact-stats__money span {
+  font-size: clamp(28px, 11cqi, 72px);
+  line-height: 0.9;
+}
+
+/* BAR */
+
+.impact-stats__bar-card {
+  grid-area: bar;
+
+  width: 100%;
+  aspect-ratio: 425 / 114;
+
+  min-height: 114px;
+
+  background:
+    url('../../assets/images/impact-mini-hearts.svg') center center / 92% auto no-repeat,
+    #2b3a00;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.impact-stats__bar-card .impact-stats__label {
+  position: absolute;
+
+  left: 12px;
+  top: 8px;
+
+  z-index: 2;
+
+  width: 162px;
+
+  margin: 0;
+
+  font-size: clamp(11px, 3cqi, 17px);
+  font-weight: 400;
+  line-height: 1.2;
+
+  color: #fafceb;
+}
+
+.impact-stats__bar-card .impact-stats__label span {
+  display: block;
+  white-space: nowrap;
+}
+
+.impact-stats__bar-bottom {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+.impact-stats__big-value {
+  position: absolute;
+
+  right: 10px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  margin: 0;
+
+  font-size: clamp(52px, 20cqi, 134px);
+  line-height: 1;
+
+  font-weight: 700;
+
+  color: #fafceb;
+}
+
+@media (min-width: 1501px) {
+  .impact-stats__title {
+    font-size: clamp(46px, 3.6vw, 62px);
+    line-height: 1.22;
+  }
+
+  .impact-stats__details-btn {
+    font-size: clamp(18px, 1.34vw, 22px);
+  }
+
+  .impact-stats__white-card .impact-stats__label,
+  .impact-stats__rate-card .impact-stats__label {
+    width: 90%;
+    font-size: clamp(19px, 12.8cqi, 27px);
+    line-height: 1.08;
+  }
+
+  .impact-stats__joined-card .impact-stats__label {
+    width: 78%;
+    font-size: clamp(15px, 10.2cqi, 21px);
+    line-height: 1.04;
+  }
+
+  .impact-stats__label--light {
+    max-width: 49%;
+    font-size: clamp(15px, 5.1cqi, 19px);
+    line-height: 1.28;
+  }
+
+  .impact-stats__bar-card .impact-stats__label {
+    width: 172px;
+    font-size: clamp(15px, 4.8cqi, 19px);
+    line-height: 1.22;
+  }
+
+  .impact-stats__white-card .impact-stats__value,
+  .impact-stats__rate-card .impact-stats__value {
+    font-size: clamp(52px, 30cqi, 90px);
+  }
+
+  .impact-stats__joined-card .impact-stats__value {
+    font-size: clamp(44px, 29cqi, 88px);
+  }
+
+  .impact-stats__money {
+    font-size: clamp(78px, 24cqi, 152px);
+  }
+
+  .impact-stats__money span {
+    font-size: clamp(34px, 12cqi, 78px);
+  }
+
+  .impact-stats__big-value {
+    font-size: clamp(62px, 22cqi, 142px);
+  }
+}
+
+@media (min-width: 1800px) {
+  .impact-stats__title {
+    font-size: clamp(47px, 3.55vw, 62px);
+  }
+
+  .impact-stats__white-card .impact-stats__label,
+  .impact-stats__rate-card .impact-stats__label {
+    font-size: clamp(18px, 11.8cqi, 24px);
+    line-height: 1.06;
+  }
+
+  .impact-stats__joined-card .impact-stats__label {
+    font-size: clamp(15px, 9.9cqi, 20px);
+  }
+
+  .impact-stats__label--light {
+    font-size: clamp(14px, 4.5cqi, 17px);
+    line-height: 1.2;
+  }
+
+  .impact-stats__bar-card .impact-stats__label {
+    font-size: clamp(14px, 4.5cqi, 17px);
+  }
+}
+
+@media (max-width: 1700px) {
+  .impact-stats__title {
+    font-size: clamp(32px, 2.35vw, 46px);
+    line-height: 1.2;
+  }
+
+  .impact-stats__title span {
+    white-space: normal;
+  }
+
+  .impact-stats__white-card .impact-stats__label,
+  .impact-stats__rate-card .impact-stats__label {
+    width: 86%;
+    font-size: clamp(13px, 8.2cqi, 19px);
+    line-height: 1.06;
+  }
+
+  .impact-stats__joined-card .impact-stats__label {
+    width: 74%;
+    font-size: clamp(11px, 6.4cqi, 16px);
+    line-height: 1.02;
+  }
+
+  .impact-stats__label--light {
+    max-width: 43%;
+    font-size: clamp(10px, 2.7cqi, 13px);
+    line-height: 1.18;
+  }
+}
+
+@media (max-width: 1500px) {
+  .impact-stats__title {
+    font-size: clamp(32px, 2.3vw, 42px);
+    line-height: 1.28;
+  }
+
+  .impact-stats__white-card .impact-stats__label,
+  .impact-stats__rate-card .impact-stats__label {
+    width: 72%;
+    font-size: clamp(12px, 6.8cqi, 17px);
+    line-height: 1.08;
+    white-space: normal;
+  }
+
+  .impact-stats__white-card .impact-stats__value,
+  .impact-stats__rate-card .impact-stats__value {
+    top: 52%;
+    font-size: clamp(34px, 22cqi, 68px);
+  }
+
+  .impact-stats__rate-grid {
+    top: 44%;
+    height: 50%;
+  }
+
+  .impact-stats__joined-card .impact-stats__label {
+    width: 64%;
+    font-size: clamp(11px, 6.1cqi, 15px);
+    line-height: 1.04;
+  }
+
+  .impact-stats__joined-card .impact-stats__label span {
+    white-space: normal;
+  }
+
+  .impact-stats__joined-card .impact-stats__value {
+    right: 8%;
+    bottom: 8%;
+    width: 52%;
+    font-size: clamp(32px, 22cqi, 62px);
+  }
+
+  .impact-stats__label--light {
+    max-width: 40%;
+    font-size: clamp(9px, 2.35cqi, 12px);
+    line-height: 1.22;
+  }
+
+  .impact-stats__money {
+    width: 82%;
+    font-size: clamp(52px, 18cqi, 104px);
+  }
+
+  .impact-stats__money span {
+    font-size: clamp(24px, 8cqi, 54px);
+  }
+
+  .impact-stats__bar-card .impact-stats__label {
+    width: 138px;
+    font-size: clamp(10px, 2.35cqi, 13px);
+    line-height: 1.2;
+  }
+
+  .impact-stats__big-value {
+    font-size: clamp(46px, 16cqi, 106px);
+  }
+}
+
+@media (min-width: 1321px) and (max-width: 1500px) {
+  .impact-stats__white-card .impact-stats__label,
+  .impact-stats__rate-card .impact-stats__label {
+    width: 76%;
+    font-size: clamp(13px, 7.4cqi, 18px);
+    line-height: 1.08;
+  }
+
+  .impact-stats__white-card .impact-stats__value {
+    left: 50%;
+    top: 40%;
+    width: auto;
+    min-height: 0;
+    transform: translateX(-50%);
+    justify-content: center;
+    font-size: clamp(40px, 24cqi, 70px);
+  }
+
+  .impact-stats__rate-card .impact-stats__value {
+    top: 48%;
+    font-size: clamp(38px, 23cqi, 70px);
+  }
+
+  .impact-stats__joined-card .impact-stats__label {
+    width: 68%;
+    font-size: clamp(12px, 6.6cqi, 16px);
+    line-height: 1.05;
+  }
+
+  .impact-stats__label--light {
+    max-width: 42%;
+    font-size: clamp(10px, 2.55cqi, 13px);
+    line-height: 1.2;
+  }
+
+  .impact-stats__bar-card .impact-stats__label {
+    width: 144px;
+    font-size: clamp(11px, 2.55cqi, 14px);
+  }
+}
+
+@media (max-width: 1320px) {
+  .impact-stats__inner {
+    width: calc(100% - 40px);
+    grid-template-areas:
+      'intro intro white'
+      'bar rate white'
+      'heart heart heart';
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(160px, 0.7fr)
+      minmax(180px, 0.8fr);
+
+    grid-template-rows:
+      auto
+      auto
+      minmax(320px, auto);
+  }
+
+  .impact-stats__joined-card .impact-stats__label {
+    width: 72%;
+  }
+
+  .impact-stats__money {
+    width: 92%;
+  }
+
+  .impact-stats__white-card {
+    width: 100%;
+
+    min-width: 0;
+
+    height: auto;
+    min-height: 424px;
+  }
+
+  .impact-stats__title {
+    width: auto;
+    max-width: 12em;
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    line-height: 1.25;
+  }
+
+  .impact-stats__rate-wrap {
+    width: 100%;
+  }
+
+  .impact-stats__rate-card {
+    width: 100%;
+
+    min-height: 199px;
+  }
+
+  .impact-stats__joined-card {
+    width: 100%;
+  }
+
+  .impact-stats__bar-card {
+    width: 100%;
+  }
+
+  .impact-stats__heart-card {
+    width: 100%;
+    height: 424px;
+    min-height: 0;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 720px) {
+  .impact-stats {
+    padding: 36px 0 44px;
+  }
+
+  .impact-stats__inner {
+    width: calc(100% - 24px);
+
+    grid-template-areas:
+      'intro intro'
+      'bar bar'
+      'white rate'
+      'white rate'
+      'heart heart';
+
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+    grid-template-rows:
+      auto
+      auto
+      minmax(120px, auto)
+      minmax(120px, auto)
+      minmax(260px, auto);
+
+    gap: var(--impact-mobile-gap);
+  }
+
+  .impact-stats__intro {
+    padding: 0;
+    gap: 10px;
+  }
+
+  .impact-stats__title {
+    width: auto;
+    max-width: 100%;
+    font-size: clamp(22px, 7.8vw, 32px);
+    line-height: 1.25;
+  }
+
+  .impact-stats__details-btn {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .impact-stats__bar-card {
+    aspect-ratio: auto;
+    min-height: 82px;
+    background:
+      url('../../assets/images/impact-mini-hearts.svg') 15% center / auto 54% no-repeat,
+      #2b3a00;
+  }
+
+  .impact-stats__bar-card .impact-stats__label {
+    left: 10px;
+    top: 8px;
+    width: 42%;
+    font-size: 10px;
+    line-height: 1.15;
+  }
+
+  .impact-stats__big-value {
+    right: 10px;
+    font-size: clamp(40px, 22cqi, 64px);
+  }
+
+  .impact-stats__white-card {
+    aspect-ratio: auto;
+    min-height: 252px;
+  }
+
+  .impact-stats__white-card .impact-stats__label,
+  .impact-stats__rate-card .impact-stats__label,
+  .impact-stats__joined-card .impact-stats__label {
+    font-size: 10px;
+    line-height: 1.15;
+    width: 78%;
+    white-space: normal;
+  }
+
+  .impact-stats__white-card .impact-stats__value,
+  .impact-stats__rate-card .impact-stats__value {
+    font-size: clamp(28px, 33cqi, 54px);
+  }
+
+  .impact-stats__rate-card,
+  .impact-stats__joined-card {
+    aspect-ratio: auto;
+    min-height: 122px;
+  }
+
+  .impact-stats__rate-wrap {
+    gap: var(--impact-mobile-gap);
+    grid-template-rows: 2fr 1fr;
+  }
+
+  .impact-stats__joined-card .impact-stats__value {
+    right: 8%;
+    bottom: 7%;
+    width: auto;
+    font-size: clamp(28px, 31cqi, 52px);
+  }
+
+  .impact-stats__heart-card {
+    aspect-ratio: auto;
+    height: auto;
+    min-height: 258px;
+    padding: 10px;
+  }
+
+  .impact-stats__label--light {
+    max-width: 100%;
+    font-size: 10px;
+    line-height: 1.15;
+  }
+
+  .impact-stats__heart-visual {
+    left: 8%;
+    top: 24%;
+    width: 84%;
+    height: 54%;
+  }
+
+  .impact-stats__money {
+    left: 5%;
+    bottom: 6%;
+    gap: 4px;
+    width: 90%;
+    font-size: clamp(44px, 28cqi, 68px);
+  }
+
+  .impact-stats__money span {
+    font-size: clamp(28px, 15cqi, 44px);
+  }
+}
+
+@media (max-width: 480px) {
+  .impact-stats__inner {
+    grid-template-rows:
+      auto
+      auto
+      minmax(120px, auto)
+      minmax(120px, auto)
+      minmax(var(--impact-mobile-heart-height), auto);
+  }
+
+  .impact-stats__rate-wrap {
+    gap: var(--impact-mobile-gap);
+    grid-template-rows: auto auto;
+  }
+
+  .impact-stats__rate-card,
+  .impact-stats__joined-card {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+    height: auto;
+  }
+
+  .impact-stats--stats-only {
+    padding: 0 0 18px;
+  }
+
+  .impact-stats--stats-only .impact-stats__inner {
+    --impact-mobile-top-row: 57px;
+    --impact-mobile-heart-height: clamp(150px, 40vw, 180px);
+
+    width: calc(100% - 24px);
+    max-width: none;
+
+    grid-template-areas:
+      'intro intro'
+      'bar bar'
+      'white rate'
+      'white rate'
+      'heart heart';
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:
+      auto
+      var(--impact-mobile-top-row)
+      auto
+      auto
+      var(--impact-mobile-heart-height);
+
+    gap: var(--impact-mobile-gap);
+  }
+
+  .impact-stats--stats-only .impact-stats__label {
+    font-size: clamp(9px, 7.8cqi, 12px);
+    line-height: 1.08;
+  }
+
+  .impact-stats--stats-only .impact-stats__intro {
+    padding: 16px 0 12px;
+  }
+
+  .impact-stats--stats-only .impact-stats__title {
+    width: 100%;
+    max-width: none;
+    font-size: clamp(24px, 5.8vw, 30px);
+    line-height: 1.04;
+  }
+
+  .impact-stats--stats-only .impact-stats__bar-card,
+  .impact-stats--stats-only .impact-stats__white-card,
+  .impact-stats--stats-only .impact-stats__rate-card,
+  .impact-stats--stats-only .impact-stats__joined-card,
+  .impact-stats--stats-only .impact-stats__heart-card {
+    min-height: 0;
+    aspect-ratio: auto;
+    height: 100%;
+  }
+
+  .impact-stats--stats-only .impact-stats__bar-card {
+    background:
+      url('../../assets/images/impact-mini-hearts.svg') 35% 68% / 58% auto no-repeat,
+      #2b3a00;
+  }
+
+  .impact-stats--stats-only .impact-stats__bar-card .impact-stats__label {
+    left: 3.3%;
+    top: 7%;
+    width: 48%;
+  }
+
+  .impact-stats--stats-only .impact-stats__big-value {
+    right: 3.5%;
+    font-size: clamp(40px, 24cqi, 58px);
+  }
+
+  .impact-stats--stats-only .impact-stats__white-card {
+    padding: 0;
+  }
+
+  .impact-stats--stats-only .impact-stats__white-card .impact-stats__label {
+    left: 6.7%;
+    top: 3.4%;
+    width: 88%;
+  }
+
+  .impact-stats--stats-only .impact-stats__white-card .impact-stats__value {
+    left: 8.5%;
+    top: 34.8%;
+    width: 84%;
+    max-width: 84%;
+    min-height: 0;
+    font-size: clamp(30px, 30cqi, 44px);
+  }
+
+  .impact-stats--stats-only .impact-stats__stairs {
+    height: 58%;
+    object-fit: cover;
+    object-position: left bottom;
+  }
+
+  .impact-stats--stats-only .impact-stats__rate-wrap {
+    gap: var(--impact-mobile-gap);
+    grid-template-rows: auto auto;
+    align-self: stretch;
+  }
+
+  .impact-stats--stats-only .impact-stats__rate-card,
+  .impact-stats--stats-only .impact-stats__joined-card {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+    height: auto;
+  }
+
+  .impact-stats--stats-only .impact-stats__rate-card .impact-stats__label {
+    left: 6%;
+    top: 5%;
+    width: 86%;
+  }
+
+  .impact-stats--stats-only .impact-stats__rate-card .impact-stats__value {
+    left: 8%;
+    top: 38%;
+    width: 84%;
+    max-width: 84%;
+    min-height: 0;
+    font-size: clamp(30px, 30cqi, 44px);
+  }
+
+  .impact-stats--stats-only .impact-stats__rate-grid {
+    left: 2px;
+    top: 49px;
+    width: calc(100% - 4px);
+    height: calc(100% - 50px);
+  }
+
+  .impact-stats--stats-only .impact-stats__joined-card .impact-stats__label {
+    left: 6.7%;
+    top: 6.7%;
+    width: 88%;
+  }
+
+  .impact-stats--stats-only .impact-stats__joined-card .impact-stats__value {
+    left: 8%;
+    right: 8%;
+    bottom: 6%;
+    width: auto;
+    font-size: clamp(30px, 30cqi, 42px);
+  }
+
+  .impact-stats--stats-only .impact-stats__heart-card {
+    padding: 8px;
+  }
+
+  .impact-stats__heart-card {
+    height: auto;
+    min-height: var(--impact-mobile-heart-height);
+  }
+
+  .impact-stats--stats-only .impact-stats__heart-card {
+    min-height: var(--impact-mobile-heart-height);
+  }
+
+  .impact-stats--stats-only .impact-stats__heart-card .impact-stats__label {
+    max-width: 56%;
+  }
+
+  .impact-stats--stats-only .impact-stats__heart-visual {
+    left: 10%;
+    top: 34%;
+    width: 80%;
+    height: 47%;
+  }
+
+  .impact-stats--stats-only .impact-stats__money {
+    left: 4.2%;
+    bottom: 4%;
+    gap: clamp(2px, 1cqi, 6px);
+    width: 92%;
+    font-size: clamp(42px, 28cqi, 58px);
+  }
+
+  .impact-stats--stats-only .impact-stats__money span {
+    font-size: clamp(30px, 18cqi, 44px);
+    line-height: 0.9;
+  }
+}

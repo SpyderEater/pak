@@ -1,0 +1,119 @@
+.section-card.basic-data-section {
+  background: #ffffff;
+  box-shadow:
+    0 4px 4px rgba(12, 12, 13, 0.1),
+    0 4px 4px rgba(12, 12, 13, 0.05);
+  border: none;
+  padding: 44px 40px 48px;
+}
+
+.section-card.basic-data-section .section-card__title {
+  margin: 0 0 34px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #121315;
+}
+
+.section-card.basic-data-section .section-card__body {
+  gap: 0;
+}
+
+.basic-data-section__fields {
+  width: 397px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.basic-data-section__group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+.basic-data-section__group--name {
+  height: 108px;
+}
+
+.basic-data-section__group--category {
+  height: 80px;
+}
+
+.basic-data-section__label {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  color: #121315;
+}
+
+.basic-data-section__input {
+  width: 397px;
+  height: 48px;
+  border: 1px solid #bdc2b0;
+  background: #ffffff;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #121315;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.basic-data-section__input::placeholder {
+  color: #9d9d9d;
+}
+
+.basic-data-section__hint {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  color: #9d9d9d;
+}
+
+.basic-data-section__select {
+  appearance: none;
+  border-color: #bdc2b0;
+  color: #9d9d9d;
+  background-image: url('../../../assets/images/chevron-down.svg');
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 18px 18px;
+  padding-right: 44px;
+}
+
+@media (max-width: 480px) {
+  .section-card.basic-data-section {
+    padding: 24px 16px 28px;
+  }
+
+  .section-card.basic-data-section .section-card__title {
+    margin: 0 0 20px;
+    font-size: 18px;
+  }
+
+  .basic-data-section__fields,
+  .basic-data-section__input {
+    width: 100%;
+  }
+
+  .basic-data-section__fields {
+    gap: 18px;
+  }
+
+  .basic-data-section__group--name,
+  .basic-data-section__group--category {
+    height: auto;
+  }
+
+  .basic-data-section__label,
+  .basic-data-section__hint {
+    font-size: 13px;
+    line-height: 18px;
+  }
+}

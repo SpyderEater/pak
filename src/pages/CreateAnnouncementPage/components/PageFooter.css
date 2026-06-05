@@ -1,0 +1,35 @@
+.page-footer {
+  background: #243500;
+  color: #e7efc7;
+  margin-top: 24px;
+}
+
+.page-footer__inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 26px 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.page-footer__brand {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.page-footer__cols {
+  display: flex;
+  gap: 50px;
+}
+
+.page-footer__cols h4 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #fbffef;
+}
+
+.page-footer__cols p {
+  margin: 0 0 6px;
+  font-size: 12px;
+}

@@ -1,0 +1,116 @@
+.page-switcher {
+  --ps-accent: var(--accent-color, #273500);
+  --ps-accent-contrast: var(--accent-contrast-color, #ffffff);
+  --page-switcher-muted: var(--ps-accent-muted, var(--accent-muted-color, #b4c238));
+  --ps-hover-color: var(--page-switcher-hover-color, #99a235);
+  --ps-disabled-color: var(--page-switcher-disabled-color, #888888);
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 4px;
+}
+
+.page-switcher__nav {
+  background: transparent;
+  border: none;
+  color: var(--page-switcher-muted);
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: color 0.2s ease;
+}
+
+.page-switcher__nav:not(:disabled):hover {
+  color: var(--ps-hover-color);
+}
+
+.page-switcher__nav-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.page-switcher__nav-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.page-switcher__nav:disabled {
+  color: var(--ps-disabled-color);
+  cursor: default;
+  pointer-events: none;
+}
+
+.page-switcher__pages {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.page-switcher__page {
+  min-width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--page-switcher-muted);
+  cursor: pointer;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 4px;
+}
+
+.page-switcher__page:not(.page-switcher__page--active):hover {
+  color: var(--ps-hover-color);
+}
+
+.page-switcher__dots {
+  color: var(--page-switcher-muted);
+  font-size: 14px;
+  line-height: 1;
+  min-width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-switcher__page--active {
+  background: var(--ps-accent-active, #6d7613);
+  color: var(--ps-accent-contrast);
+  border-radius: 3px;
+}
+
+.page-switcher,
+.page-switcher * {
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .page-switcher {
+    gap: 8px;
+  }
+
+  .page-switcher__pages {
+    gap: 4px;
+  }
+
+  .page-switcher__nav-text {
+    display: none;
+  }
+}
