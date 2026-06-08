@@ -96,7 +96,7 @@ export function AuthProvider({ children }) {
     try {
       const updated = { ...user, ...updates }
       const res = await fetch(`${USERS_API}/${user.id}`, {
-        method: 'PUT',
+        method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updated),
       })

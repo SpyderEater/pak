@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router'
 import { useEffect, useRef } from 'react'
 import { useCart } from '/src/contexts/CartContext'
+import { useAuth } from '/src/contexts/AuthContext.jsx'
 import './Cart.css'
 
 const TrashIcon = () => (
@@ -17,6 +18,7 @@ const TrashIcon = () => (
 
 export default function Cart({ onClose, onCheckout }) {
   const { items, removeItem } = useCart()
+  const { user } = useAuth()
   const dropdownRef = useRef(null)
   const navigate = useNavigate()
 
@@ -78,9 +80,14 @@ export default function Cart({ onClose, onCheckout }) {
           <span className="cart-total__label">Сума до сплати:</span>
           <span className="cart-total__value">{total} грн</span>
         </div>
+        {!user && items.length > 0 && (
+          <p className="cart-login-hint">
+            <a href="/login" onClick={onClose}>Увійдіть</a>, щоб оформити замовлення
+          </p>
+        )}
         <button
           className="cart-checkout"
-          disabled={items.length === 0}
+          disabled={items.length === 0 || !user}
           onClick={() => {
             onClose()
             onCheckout?.()
