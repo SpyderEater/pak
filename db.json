@@ -29,6 +29,8 @@
   "users": [
     {
       "id": 1,
+      "email": "olly@example.com",
+      "password": "1234",
       "firstName": "Олександра",
       "lastName": "Лисак",
       "username": "@ollysak",
@@ -193,32 +195,6 @@
       "category": "kids"
     },
     {
-      "id": 104,
-      "sellerId": 1,
-      "title": "Велосипед",
-      "description": "",
-      "price": 0,
-      "currency": "грн",
-      "donationPercentage": 0,
-      "images": [
-        "/uploads/products/bicycle_main.png",
-        "/uploads/products/bicycle_side.png",
-        "/uploads/products/bicycle_back.png",
-        "/uploads/products/bicycle_detail.png"
-      ],
-      "status": "DRAFT",
-      "categoryId": 6,
-      "condition": "used",
-      "location": "",
-      "attributes": {},
-      "shippingMethods": [],
-      "paymentMethods": [],
-      "linkedCampaignId": null,
-      "createdAt": "2024-11-15T18:45:00Z",
-      "type": "equipment",
-      "category": "hobbies"
-    },
-    {
       "id": 105,
       "sellerId": 1,
       "title": "Картина олійними фарбами \"Весна\"",
@@ -246,32 +222,6 @@
       "linkedCampaignId": "",
       "createdAt": "2024-11-01T09:00:00Z",
       "type": "other",
-      "category": "art-craft"
-    },
-    {
-      "id": 106,
-      "sellerId": 1,
-      "title": "Набір пензликів для малювання",
-      "description": "Набір професійних пензликів для художників.",
-      "price": 230,
-      "currency": "грн",
-      "donationPercentage": 10,
-      "images": [
-        "/uploads/products/paintbrushes_main.png",
-        "/uploads/products/paintbrushes_side.png",
-        "/uploads/products/paintbrushes_open.png",
-        "/uploads/products/paintbrushes_detail.png"
-      ],
-      "status": "DRAFT",
-      "categoryId": 7,
-      "condition": "new",
-      "location": "м. Львів",
-      "attributes": {},
-      "shippingMethods": ["Нова Пошта"],
-      "paymentMethods": ["Онлайн-оплата карткою"],
-      "linkedCampaignId": null,
-      "createdAt": "2024-11-05T12:00:00Z",
-      "type": "equipment",
       "category": "art-craft"
     },
     {

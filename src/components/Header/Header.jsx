@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import './Header.css'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import LogoIcon from '../../assets/images/logo.svg?react'
 import LogoNoTextIcon from '../../assets/images/logo_no_text.svg?react'
 import GridIcon from '../../assets/images/catalog_grid.svg?react'
 import UserIcon from '../../assets/images/profile_icon.svg?react'
 import CartIcon from '../../assets/images/cart_icon.svg?react'
 import SearchIcon from '../../assets/images/search_icon.svg?react'
+import { useAuth } from '/src/contexts/AuthContext.jsx'
 
 const defaultLinks = [
   { label: 'Про нас', href: '/' },
@@ -19,7 +20,7 @@ export default function Header({
   links = defaultLinks,
   ctaText = 'Додати оголошення',
   ctaHref = '/create-announcement',
-  topInfoText = 'Профіль/Замовлення',
+  topInfoText = '',
   transparent = true,
   overlay = false,
   onCartOpen = () => {},
@@ -27,10 +28,11 @@ export default function Header({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const headerRef = useRef(null)
+  const { user, logout } = useAuth()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const headerElement = headerRef.current
-
     if (!headerElement) return undefined
 
     const updateHeaderOffset = () => {
@@ -45,10 +47,7 @@ export default function Header({
     if (typeof ResizeObserver !== 'undefined') {
       const resizeObserver = new ResizeObserver(updateHeaderOffset)
       resizeObserver.observe(headerElement)
-
-      return () => {
-        resizeObserver.disconnect()
-      }
+      return () => resizeObserver.disconnect()
     }
 
     window.addEventListener('resize', updateHeaderOffset)
@@ -71,15 +70,11 @@ export default function Header({
     } else {
       document.body.style.overflow = ''
     }
-    return () => {
-      document.body.style.overflow = ''
-    }
+    return () => { document.body.style.overflow = '' }
   }, [isMobileMenuOpen])
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 8)
-    }
+    const onScroll = () => setScrolled(window.scrollY > 8)
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
@@ -87,12 +82,21 @@ export default function Header({
 
   const closeMenu = () => setIsMobileMenuOpen(false)
 
+  const handleLogout = () => {
+    logout()
+    closeMenu()
+    navigate('/')
+  }
+
+  const avatarSrc = user?.avatarUrl
+  const initials = user
+    ? ((user.firstName?.[0] || '') + (user.lastName?.[0] || '')).toUpperCase() || '?'
+    : null
+
   return (
     <header
       ref={headerRef}
-      className={`header${
-        transparent ? ' header--transparent' : ''
-      }${overlay ? ' header--overlay' : ''}${scrolled ? ' header--scrolled' : ''}`.trim()}
+      className={`header${transparent ? ' header--transparent' : ''}${overlay ? ' header--overlay' : ''}${scrolled ? ' header--scrolled' : ''}`.trim()}
     >
       {topInfoText && topInfoText.trim() !== '' ? (
         <div className="header__top">{topInfoText}</div>
@@ -140,14 +144,37 @@ export default function Header({
 
             <div className="header__utility-icons">
               <Link
-                to="/profile"
-                className="header__icon-btn"
+                to={user ? '/profile' : '/login'}
+                className="header__icon-btn header__profile-btn"
                 aria-label="Профіль"
                 onClick={closeMenu}
               >
-                <UserIcon className="header__icon-svg" />
-                <span className="header__mobile-text">Профіль</span>
+                {user && avatarSrc ? (
+                  <img
+                    src={avatarSrc}
+                    alt="Аватар"
+                    className="header__avatar-img"
+                  />
+                ) : user && initials ? (
+                  <span className="header__avatar-initials">{initials}</span>
+                ) : (
+                  <UserIcon className="header__icon-svg" />
+                )}
+                <span className="header__mobile-text">
+                  {user ? (user.firstName || 'Профіль') : 'Увійти'}
+                </span>
               </Link>
+
+              {user && isMobileMenuOpen && (
+                <button
+                  type="button"
+                  className="header__icon-btn header__logout-btn"
+                  onClick={handleLogout}
+                  aria-label="Вийти"
+                >
+                  <span className="header__mobile-text">Вийти</span>
+                </button>
+              )}
 
               <button
                 type="button"
@@ -180,7 +207,11 @@ export default function Header({
             {ctaText}
           </Link>
 
-          <button type="button" className="header__icon-btn search-desktop-only" aria-label="Пошук">
+          <button
+            type="button"
+            className="header__icon-btn search-desktop-only"
+            aria-label="Пошук"
+          >
             <SearchIcon className="header__icon-svg" />
           </button>
         </div>

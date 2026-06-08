@@ -5,6 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs.jsx'
 import HeroBanner from '../../components/HeroBanner/HeroBanner.jsx'
 import SidebarWrapper from './components/SidebarWrapper/SidebarWrapper.jsx'
 import ListingsFeed from './components/ListingsFeed/ListingsFeed.jsx'
+import ProfileEditModal from './components/ProfileEditModal/Profileeditmodal.jsx'
 
 import AddPlusIcon from './images/add_plus_icon.svg?react'
 import BinIcon from './images/bin_icon.svg?react'
@@ -16,7 +17,7 @@ import SupportIcon from './images/support_icon.svg?react'
 import defaultAvatar from './images/default_avatar.svg'
 import ArrowRightIcon from '../../assets/images/arrow_right.svg?react'
 
-import { getCurrentUserId } from '/src/services/session'
+import { useAuth } from '/src/contexts/AuthContext.jsx'
 import { getProfileData } from './services/profile'
 import { deleteProduct } from '../../services/products'
 
@@ -26,20 +27,11 @@ const PROFILE_TABS = [
   { id: 'orders', label: 'Замовлення' },
 ]
 
-const MENU_LINKS = [
-  { id: 'support', label: 'Підтримка', icon: <SupportIcon />, iconAlt: 'Підтримка' },
-  {
-    id: 'settings',
-    label: 'Налаштування',
-    icon: <SettingsIcon />,
-    iconAlt: 'Налаштування',
-  },
-  { id: 'logout', label: 'Вийти', icon: <LeaveIcon />, iconAlt: 'Вийти' },
-]
-
 export default function Profile() {
   const navigate = useNavigate()
+  const { user, logout } = useAuth()
   const [activeTabId, setActiveTabId] = useState(PROFILE_TABS[0].id)
+  const [showEditModal, setShowEditModal] = useState(false)
 
   const [userIdentity, setUserIdentity] = useState({
     avatarSrc: defaultAvatar,
@@ -68,46 +60,45 @@ export default function Profile() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  // function buildDraftsWithHandlers(drafts) {
-  //   return (drafts ?? []).map((card) => ({
-  //     ...card,
-  //     onPrimaryAction: () => navigate(`/edit-announcement/${card.id}`),
-  //     onDeleteAction: async () => {
-  //       try {
-  //         //await deleteProduct(card.id)
-  //         const numericId = String(card.id).replace('prod-', '')
-  //         await deleteProduct(numericId)
-  //         setListingsByTab((prev) => ({
-  //           ...prev,
-  //           drafts: prev.drafts.filter((d) => d.id !== card.id),
-  //         }))
-  //       } catch (err) {
-  //         console.error('Failed to delete draft', err)
-  //       }
-  //     },
-  //   }))
-  // }
+  // Якщо не залогінений — редирект на логін
+  useEffect(() => {
+    if (!user && !isLoading) {
+      navigate('/login')
+    }
+  }, [user, isLoading, navigate])
+
+  // Оновлюємо userIdentity коли змінився user (після редагування)
+  useEffect(() => {
+    if (!user) return
+    setUserIdentity((prev) => ({
+      ...prev,
+      avatarSrc: user.avatarUrl || defaultAvatar,
+      name: `${user.firstName || ''} ${user.lastName || ''}`.trim() || 'Користувач',
+      username: user.username || '',
+    }))
+  }, [user])
 
   useEffect(() => {
     let mounted = true
+    const userId = user?.id
+    if (!userId) return
+
     ;(async () => {
       if (mounted) {
         setIsLoading(true)
         setError(null)
       }
-
       try {
-        const userId = getCurrentUserId()
         const profileData = await getProfileData(userId)
         if (!mounted || !profileData) return
 
         setUserIdentity({
-          avatarSrc: profileData.userIdentity.avatarSrc,
+          avatarSrc: user.avatarUrl || profileData.userIdentity.avatarSrc || defaultAvatar,
           avatarAlt: profileData.userIdentity.avatarAlt,
-          name: profileData.userIdentity.name,
-          username: profileData.userIdentity.username,
+          name: `${user.firstName || ''} ${user.lastName || ''}`.trim() || profileData.userIdentity.name,
+          username: user.username || profileData.userIdentity.username,
           levelLabel: profileData.userIdentity.levelLabel,
-          levelProgress: profileData.userIdentity.levelProgress,
+          levelProgress: user.levelProgress ?? profileData.userIdentity.levelProgress,
           messageLabel: 'Повідомлення',
           messageIcon: <MessagesIcon />,
         })
@@ -127,7 +118,6 @@ export default function Profile() {
 
         setListingsByTab({
           ...profileData.listingsByTab,
-          // drafts: buildDraftsWithHandlers(profileData.listingsByTab.drafts),
           drafts: profileData.listingsByTab.drafts ?? [],
           orders: [
             ...localOrders.map((order) => ({
@@ -141,24 +131,35 @@ export default function Profile() {
             ...(profileData.listingsByTab.orders ?? []),
           ],
         })
-        console.log('drafts:', profileData.listingsByTab.drafts)
-        console.log('listingsByTab keys:', Object.keys(profileData.listingsByTab))
-        console.log('profileData.listingsByTab:', profileData.listingsByTab)
-        console.log('default orders:', profileData.listingsByTab.orders)
-
       } catch (err) {
-        if (mounted) {
-          setError(err)
-        }
-        console.error('Failed to load profile data', err)
+        if (mounted) setError(err)
       } finally {
-        if (mounted) {
-          setIsLoading(false)
-        }
+        if (mounted) setIsLoading(false)
       }
     })()
+
     return () => (mounted = false)
-  }, [])
+  }, [user?.id])
+
+  const handleMenuAction = (id) => {
+    if (id === 'logout') {
+      logout()
+      navigate('/')
+    } else if (id === 'settings') {
+      setShowEditModal(true)
+    }
+  }
+
+  const MENU_LINKS = [
+    { id: 'support', label: 'Підтримка', icon: <SupportIcon />, iconAlt: 'Підтримка' },
+    {
+      id: 'settings',
+      label: 'Налаштування',
+      icon: <SettingsIcon />,
+      iconAlt: 'Налаштування',
+    },
+    { id: 'logout', label: 'Вийти', icon: <LeaveIcon />, iconAlt: 'Вийти' },
+  ]
 
   const breadcrumbItems = [
     { label: 'Головна', to: '/' },
@@ -166,7 +167,6 @@ export default function Profile() {
   ]
 
   const bannerLeftContent = <Breadcrumbs variant="inline" items={breadcrumbItems} />
-
   const bannerRightContent = (
     <h1 className="profile-banner-title">Донать, досягай нового рівня, отримуй нагороди!</h1>
   )
@@ -187,23 +187,6 @@ export default function Profile() {
       }
     },
   }))
-
-  // const announcementsWithHandlers = (listingsByTab.announcements ?? []).map((card) => ({
-  //   ...card,
-  //   onPrimaryAction: () => navigate(`/edit-announcement/${String(card.id).replace('prod-', '')}`),
-  //   onDeleteAction: async () => {
-  //     try {
-  //       const numericId = String(card.id).replace('prod-', '')
-  //       await deleteProduct(numericId)
-  //       setListingsByTab((prev) => ({
-  //         ...prev,
-  //         announcements: prev.announcements.filter((a) => a.id !== card.id),
-  //       }))
-  //     } catch (err) {
-  //       console.error('Failed to delete announcement', err)
-  //     }
-  //   },
-  // }))
 
   return (
     <div
@@ -227,6 +210,8 @@ export default function Profile() {
             impactStats={impactStats}
             rewards={rewards}
             menuLinks={MENU_LINKS}
+            onMenuAction={handleMenuAction}
+            onEditProfile={() => setShowEditModal(true)}
           />
         </div>
 
@@ -237,20 +222,20 @@ export default function Profile() {
             onTabChange={setActiveTabId}
             addListingLabel="Додати оголошення"
             addListingIcon={<AddPlusIcon />}
-            // cards={listingsByTab[activeTabId] ?? []}
-            cards={activeTabId === 'drafts' ? draftsWithHandlers : (listingsByTab[activeTabId] ?? [])}
-            // cards={
-            //   activeTabId === 'drafts'
-            //     ? draftsWithHandlers
-            //     : activeTabId === 'announcements'
-            //       ? announcementsWithHandlers
-            //       : (listingsByTab[activeTabId] ?? [])
-            // }
+            cards={
+              activeTabId === 'drafts'
+                ? draftsWithHandlers
+                : (listingsByTab[activeTabId] ?? [])
+            }
             messageIcon={<MessagesIcon />}
             deleteIcon={<BinIcon />}
           />
         </div>
       </main>
+
+      {showEditModal && (
+        <ProfileEditModal onClose={() => setShowEditModal(false)} />
+      )}
     </div>
   )
 }

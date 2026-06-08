@@ -1,0 +1,242 @@
+.pedit-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: pedit-fade-in 0.2s ease;
+}
+
+@keyframes pedit-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.pedit-modal {
+  background: #fff;
+  width: 100%;
+  max-width: 500px;
+  padding: 40px 36px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: pedit-slide-up 0.25s ease;
+}
+
+@keyframes pedit-slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.pedit-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #888;
+  line-height: 1;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+.pedit-close:hover { color: #111; }
+
+.pedit-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
+  margin: 0 0 28px;
+  letter-spacing: -0.01em;
+}
+
+/* Avatar */
+.pedit-avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 28px;
+  gap: 8px;
+}
+
+.pedit-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #e8eedc;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid #ddd;
+}
+
+.pedit-avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pedit-avatar__initials {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #4a6b2a;
+  letter-spacing: -0.02em;
+}
+
+.pedit-avatar__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+}
+.pedit-avatar:hover .pedit-avatar__overlay { opacity: 1; }
+
+.pedit-avatar__input {
+  display: none;
+}
+
+.pedit-avatar__hint {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+  text-align: center;
+}
+
+/* Form */
+.pedit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pedit-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.pedit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pedit-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+}
+
+.pedit-input {
+  border: 1px solid #ddd;
+  padding: 10px 13px;
+  font-size: 14px;
+  color: #111;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fff;
+  border-radius: 2px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.pedit-input:focus {
+  border-color: #111;
+}
+
+.pedit-input::placeholder {
+  color: #bbb;
+}
+
+.pedit-error {
+  background: #fff3f3;
+  border: 1px solid #f5c6c6;
+  color: #c00;
+  font-size: 13px;
+  padding: 9px 13px;
+  border-radius: 2px;
+}
+
+.pedit-success {
+  background: #f0f7e8;
+  border: 1px solid #c3dfa0;
+  color: #3a6b14;
+  font-size: 13px;
+  padding: 9px 13px;
+  border-radius: 2px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Actions */
+.pedit-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.pedit-btn {
+  flex: 1;
+  padding: 13px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.pedit-btn--cancel {
+  background: #fff;
+  border-color: #ddd;
+  color: #555;
+}
+.pedit-btn--cancel:hover {
+  border-color: #999;
+  color: #111;
+}
+
+.pedit-btn--save {
+  background: #111;
+  color: #fff;
+}
+.pedit-btn--save:hover:not(:disabled) {
+  background: #333;
+}
+.pedit-btn--save:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  .pedit-modal {
+    padding: 28px 18px;
+  }
+
+  .pedit-field-row {
+    grid-template-columns: 1fr;
+  }
+
+  .pedit-actions {
+    flex-direction: column;
+  }
+}

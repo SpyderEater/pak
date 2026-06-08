@@ -11,6 +11,7 @@ export default function SidebarWrapper({
   impactStats,
   rewards,
   menuLinks,
+  onMenuAction,
 }) {
   const rootClassName = className ? `sidebar-wrapper ${className}` : 'sidebar-wrapper'
 
@@ -44,7 +45,7 @@ export default function SidebarWrapper({
       </div>
 
       <div className="sidebar-wrapper__section sidebar-wrapper__section--menu">
-        <SidebarMenu menuLinks={menuLinks} />
+        <SidebarMenu menuLinks={menuLinks} onMenuAction={onMenuAction} />
       </div>
     </aside>
   )
